@@ -1,0 +1,5 @@
+FROM arm64v8/openjdk:11-jre-slim-buster
+RUN apt-get update && apt-get install -y --no-install-recommends sqlite3 libsqlite3-dev
+ADD https://downloads.metabase.com/latest/metabase.jar ./metabase.jar
+EXPOSE 3000/tcp
+CMD ["java", "-jar", "./metabase.jar"]
